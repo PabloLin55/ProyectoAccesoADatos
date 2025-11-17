@@ -1,11 +1,16 @@
 package org.example;
+
+import DAO.LibroDAO;
+import DAO.LibroDAOImpl;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.printf("Hello and welcome!");
+        LibroDAO libroDAO = new LibroDAOImpl();
 
-        for (int i = 1; i <= 5; i++) {
+        LibrosService servicioLibros = new LibrosService(libroDAO);
+        AutorService servicioAutores = new AutorService(autorDAO);
+        PrestamoService servicioPrestamos = new PrestamoService(prestamoDAO);
+        UsuarioService servicioAutores = new UsuarioService(UsuarioDAO);
 
-            System.out.println("i = " + i);
-        }
     }
 }

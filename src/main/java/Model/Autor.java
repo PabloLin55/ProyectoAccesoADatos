@@ -2,14 +2,12 @@ package Model;
 
 public class Autor {
     private int id;
-    private String titulo;
-    private String isbn;
+    private String nombre;
 
     public Autor() {}
-    public Autor(int id, String titulo, String isbn) {
+    public Autor(int id, String nombre) {
         this.id = id;
-        this.titulo = titulo;
-        this.isbn = isbn;
+        this.nombre = nombre;
     }
     public int getId() {
         return id;
@@ -17,20 +15,15 @@ public class Autor {
     public void setId(int id) {
         this.id = id;
     }
-    public String getTitulo() {
-        return titulo;
+    public String getNombre() {
+        return nombre;
     }
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-    public String getIsbn() {
-        return isbn;
-    }
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
+
     public String toString() {
-        return "Autor: " + titulo + " " + isbn + " " + id;
+        return "Autor: " + nombre + " " + id;
     }
 }
 

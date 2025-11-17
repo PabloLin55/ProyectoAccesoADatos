@@ -9,7 +9,6 @@ public class Usuario {
     public Usuario(int id, String nombre) {
         this.id = id;
         this.nombre = nombre;
-        this.idPrestamo = id;
     }
     public int getId() {
         return id;
@@ -22,12 +21,6 @@ public class Usuario {
     }
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-    public int getIdPrestamo() {
-        return idPrestamo;
-    }
-    public void setIdPrestamo(int idPrestamo) {
-        this.idPrestamo = idPrestamo;
     }
 
     public String toString() {
