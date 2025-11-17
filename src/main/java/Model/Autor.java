@@ -30,7 +30,7 @@ public class Autor {
         this.isbn = isbn;
     }
     public String toString() {
-        return "Autor{" + "id=" + id + ", titulo=" + titulo + '}';
+        return "Autor: " + titulo + " " + isbn + " " + id;
     }
 }
 

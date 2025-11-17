@@ -21,7 +21,7 @@ public class Libro_Autor {
         this.idAutor = idAutor;
     }
     public String toString() {
-        return "Libro-Autor" + idLibro + " " + idAutor;
+        return "Libro-Autor: " + idLibro + " " + idAutor;
     }
 
 }
