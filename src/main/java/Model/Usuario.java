@@ -3,7 +3,6 @@ package Model;
 public class Usuario {
     private int id;
     private String nombre;
-    private int idPrestamo;
     public Usuario() {}
 
     public Usuario(int id, String nombre) {
@@ -24,6 +23,6 @@ public class Usuario {
     }
 
     public String toString() {
-        return "Usuario: " + id + ", Título='" + nombre + '\'' + ", Prestamo=" + idPrestamo + '}';
+        return "Usuario: " + id + " " + nombre;
     }
 }
