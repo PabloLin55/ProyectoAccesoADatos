@@ -24,8 +24,7 @@ public class Autor {
 
     @Override
     public String toString() {
-        return String.format("| %-11s | %-10d | %-20s  |",
-                "Autor", id, nombre);
+       return "Autor[ " + "id= " + id + ", nombre= " + nombre + " ]";
     }
 }
 

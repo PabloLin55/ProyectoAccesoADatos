@@ -22,7 +22,6 @@ public class Libro {
 
     @Override
     public String toString() {
-        return String.format("| %-11s | %-10d | %-20s | %-13s |",
-                "Libro", id, titulo, isbn);
+        return "Libro [ id= " + id + ", titulo= " + titulo + ", isbn= " + isbn + " ]";
     }
 }

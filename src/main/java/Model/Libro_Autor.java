@@ -22,8 +22,7 @@ public class Libro_Autor {
     }
     @Override
     public String toString() {
-        return String.format("| %-11s | %-10d | %-10d |",
-                "Libro-Autor", idLibro, idAutor);
+        return "Libro-Autor[" + " idLibro=" + idLibro + ", idAutor= " + idAutor + ']';
     }
 
 }

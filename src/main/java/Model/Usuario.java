@@ -24,7 +24,6 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return String.format("| %-11s | %-10d |%-11s |",
-                "Usuario", id, nombre);
+        return "Usuario[ " + "id=" + id + ", nombre=" + nombre + " ]";
     }
 }
