@@ -49,10 +49,13 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
-                Usuario usuario = new Usuario(rs.getInt("id"), rs.getString("nombre"));
-                return usuario;
+                if (rs.next()) {
+                    Usuario usuario = new Usuario(rs.getInt("id"), rs.getString("nombre"));
+                    return usuario;
+                }
             }
         }
+        return null;
     }
 
     @Override
@@ -71,16 +74,17 @@ public class UsuarioDAOImpl implements UsuarioDAO {
     @Override
     public void deleteUsuario(int id) throws SQLException {
         String sqlEliminarUsuario = "DELETE FROM usuario WHERE id = ?";
-        String sqlEliminarPrestamos = "DELETE p FROM prestamo p INNER JOIN usuario u ON p.id = u.id";
+        String sqlEliminarPrestamos = "DELETE p FROM prestamo p INNER JOIN usuario u ON p.id = u.id WHERE u.id = ?";
         try (Connection conn = ConnectionManager.getConnection();
              PreparedStatement psEliminarUsuarios = conn.prepareStatement(sqlEliminarUsuario);
              PreparedStatement pssEliminarPrestamos = conn.prepareStatement(sqlEliminarPrestamos);)
         {
 
-            psEliminarUsuarios.setInt(1, id);
-            psEliminarUsuarios.executeUpdate();
             pssEliminarPrestamos.setInt(1, id);
             pssEliminarPrestamos.executeUpdate();
+            psEliminarUsuarios.setInt(1, id);
+            psEliminarUsuarios.executeUpdate();
+
 
             System.out.println("DAO: Usuario eliminado (id=" + id + ")");
         }
