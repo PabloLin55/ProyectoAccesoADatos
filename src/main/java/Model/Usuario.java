@@ -22,7 +22,9 @@ public class Usuario {
         this.nombre = nombre;
     }
 
+    @Override
     public String toString() {
-        return "Usuario: " + id + " " + nombre;
+        return String.format("| %-11s | %-10d |%-11s |",
+                "Usuario", id, nombre);
     }
 }

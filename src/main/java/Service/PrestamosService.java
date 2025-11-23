@@ -28,10 +28,10 @@ public class PrestamosService {
         }
     }
 
-    public void cambiarFecha(int id, String fechaInicio, String fechaFin, int idLibro, int idUsuario) {
+    public void cambiarPrestamo(int id, String fechaInicio, String fechaFin, int idLibro, int idUsuario) {
         try {
             Prestamo prestamo = prestamoDAO.getPrestamoById(id);
-            if (fechaInicio.equals("") && fechaFin.equals("")) {
+            if (!fechaInicio.equals("") && !fechaFin.equals("")) {
                 prestamo.setFechaInicio(fechaInicio);
                 prestamo.setFechaFin(fechaFin);
             }
@@ -47,7 +47,7 @@ public class PrestamosService {
             if (prestamo != null) {
                 prestamoDAO.updatePrestamo(prestamo);
             } else {
-                System.out.println("No se encontr<UNK> el prestamo con el id: " + id);
+                System.out.println("Prestamo no encontrado");
             }
 
         } catch (Exception e) {

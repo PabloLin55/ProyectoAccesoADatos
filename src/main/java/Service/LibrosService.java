@@ -56,7 +56,7 @@ public class LibrosService {
                 if (libro != null) {
                     libroDAO.updateLibro(libro);
                 } else {
-                    System.out.println("Service: No se encontró el libro con id=" + id);
+                    System.out.println("Libro no encontrado");
                 }
             } catch (Exception e) {
                 System.err.println("Error al actualizar libro: " + e.getMessage());

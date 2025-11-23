@@ -70,12 +70,18 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
     @Override
     public void deleteUsuario(int id) throws SQLException {
-        String sql = "DELETE FROM usuario WHERE id = ?";
+        String sqlEliminarUsuario = "DELETE FROM usuario WHERE id = ?";
+        String sqlEliminarPrestamos = "DELETE p FROM prestamo p INNER JOIN usuario u ON p.id = u.id";
         try (Connection conn = ConnectionManager.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql);){
+             PreparedStatement psEliminarUsuarios = conn.prepareStatement(sqlEliminarUsuario);
+             PreparedStatement pssEliminarPrestamos = conn.prepareStatement(sqlEliminarPrestamos);)
+        {
 
-            ps.setInt(1, id);
-            ps.executeUpdate();
+            psEliminarUsuarios.setInt(1, id);
+            psEliminarUsuarios.executeUpdate();
+            pssEliminarPrestamos.setInt(1, id);
+            pssEliminarPrestamos.executeUpdate();
+
             System.out.println("DAO: Usuario eliminado (id=" + id + ")");
         }
     }

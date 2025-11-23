@@ -22,8 +22,10 @@ public class Autor {
         this.nombre = nombre;
     }
 
+    @Override
     public String toString() {
-        return "Autor: " + nombre + " " + id;
+        return String.format("| %-11s | %-10d | %-20s  |",
+                "Autor", id, nombre);
     }
 }
 

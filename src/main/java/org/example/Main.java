@@ -3,6 +3,8 @@ package org.example;
 import DAO.*;
 import Model.Autor;
 import Model.Libro;
+import Model.Prestamo;
+import Model.Usuario;
 import Service.AutoresService;
 import Service.LibrosService;
 import Service.PrestamosService;
@@ -134,6 +136,102 @@ public class Main {
                     System.out.println("Introduce el id del autor a eliminar: ");
                     int id = sc.nextInt();
                     servicioAutores.eliminarAutor(id);
+                }
+                case 5 -> {
+                    System.out.println("Volviendo...");
+                }
+            }
+        }
+    }
+    public static void menuUsuarios(UsuariosService servicioUsuarios) {
+        int opcion = 0;
+        while (opcion != 5) {
+            System.out.println("""
+                    Menú Usuarios:
+                    1.Registrar Usuario.
+                    2.Mostrar Usuarios.
+                    3.Actualizar Usuario.
+                    4.Eliminar Usuario.
+                    5.Volver""");
+            opcion = sc.nextInt();
+            switch (opcion) {
+                case 1 -> {
+                    System.out.println("Introduce el nombre del usuario: ");
+                    sc.nextLine();
+                    String nombre = sc.nextLine();
+                    servicioUsuarios.registrarUsuario(nombre);
+                }
+                case 2 -> {
+                    List<Usuario> usuarios = servicioUsuarios.listarUsuarios();
+                    for (Usuario usuario : usuarios) {
+                        System.out.println(usuario);
+                    }
+                }
+                case 3 -> {
+                     System.out.println("Introduce el id del usuario a actualizar: ");
+                     int id = sc.nextInt();
+                     System.out.println("Introduce el nuevo nombre del usuario: ");
+                     String nombre = sc.nextLine();
+                     servicioUsuarios.cambiarNombre(id, nombre);
+                }
+                case 4 -> {
+                    System.out.println("Introduce el id del usuario a eliminar: ");
+                    int id = sc.nextInt();
+                    servicioUsuarios.eliminarUsuario(id);
+                }
+                case 5 -> {
+                    System.out.println("Volviendo...");
+                }
+            }
+        }
+    }
+
+    public static void menuPrestamos(PrestamosService servicioPrestamos) {
+        int opcion = 0;
+        while (opcion != 5) {
+            System.out.println("""
+                    Menú Prestamos:
+                    1.Registrar Prestamo.
+                    2.Mostrar Prestamos.
+                    3.Actualizar Prestamo.
+                    4.Eliminar Prestamo.
+                    5.Volver""");
+            opcion = sc.nextInt();
+            switch (opcion) {
+                case 1 -> {
+                    System.out.println("Introduce la fecha en la que se empezo el prestamo (formato yyyy-MM-dd): ");
+                    String fechaInicio = sc.nextLine();
+                    System.out.println("Introduce la fecha en la que acabo el prestamo (formato yyyy-MM-dd): ");
+                    String fechaFin = sc.nextLine();
+                    System.out.println("Introduce el id del usuario que hizo el prestamo: ");
+                    int idUsuario = sc.nextInt();
+                    System.out.println("Introduce el id del libro prestado: ");
+                    int idLibro = sc.nextInt();
+                    servicioPrestamos.registrarPrestamo(fechaInicio, fechaFin, idUsuario, idLibro);
+                }
+                case 2 -> {
+                    List<Prestamo> prestamos = servicioPrestamos.listarPrestamos();
+                    for (Prestamo prestamo : prestamos) {
+                        System.out.println(prestamo);
+                    }
+                }
+                case 3 -> {
+                    System.out.println("Introduce el id del prestamo a actualizar: ");
+                    int id = sc.nextInt();
+                    System.out.println("Introduce la fecha en la que hizo el prestamo(O pulsa Enter si no quieres actualizarlo): ");
+                    String fechaInicio = sc.nextLine();
+                    System.out.println("Introduce la fecha en la que avabo el prestamo(O pulsa Enter si no quieres actualizarlo): ");
+                    String fechaFin = sc.nextLine();
+                    System.out.println("Introduce el id del usuario que hizo el prestamo(O escribe 0 si no quieres actualizarlo): ");
+                    int idUsuario = sc.nextInt();
+                    System.out.println("Introduce el id del libro prestado: ");
+                    int idLibro = sc.nextInt();
+                    servicioPrestamos.cambiarPrestamo(id, fechaInicio, fechaFin, idUsuario, idLibro);
+                }
+                case 4 -> {
+                    System.out.println("Introduce el id del prestamo a eliminar: ");
+                    int id = sc.nextInt();
+                    servicioPrestamos.eliminarPrestamo(id);
                 }
                 case 5 -> {
                     System.out.println("Volviendo...");

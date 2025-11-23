@@ -20,8 +20,10 @@ public class Libro_Autor {
     public void setIdAutor(int idAutor) {
         this.idAutor = idAutor;
     }
+    @Override
     public String toString() {
-        return "Libro-Autor: " + idLibro + " " + idAutor;
+        return String.format("| %-11s | %-10d | %-10d |",
+                "Libro-Autor", idLibro, idAutor);
     }
 
 }

@@ -41,7 +41,9 @@ public class Prestamo {
     public void setIdLibro(int idLibro) {
         this.idLibro = idLibro;
     }
+    @Override
     public String toString() {
-        return "Prestamo: " + idPrestamo + " " + fechaInicio +  " " + fechaFin  + " " + idLibro;
+        return String.format("| %-11s | %-10d | %-13s | %-13s | %-10d | %-10d |",
+                "Libro-Autor", idPrestamo , fechaInicio, fechaFin, idUsuario, idLibro);
     }
 }
