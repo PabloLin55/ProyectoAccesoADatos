@@ -40,8 +40,8 @@ public class Main {
             switch(opcion) {
                 case 1 -> {menuLibros(servicioLibros);}
                 case 2 -> {menuAutores(servicioAutores);}
-                case 3 -> {}
-                case 4 -> {}
+                case 3 -> {menuPrestamos(servicioPrestamos);}
+                case 4 -> {menuUsuarios(servicioUsuario);}
                 case 5 -> {
                     System.out.println("Me despido de usted inmediatamente.");
                 }

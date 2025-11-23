@@ -43,7 +43,6 @@ public class Prestamo {
     }
     @Override
     public String toString() {
-        return String.format("| %-11s | %-10d | %-13s | %-13s | %-10d | %-10d |",
-                "Libro-Autor", idPrestamo , fechaInicio, fechaFin, idUsuario, idLibro);
+        return "Libro-Autor[ " + " idPrestamo= " + idPrestamo + ", fecha de Inicio= " + fechaInicio + ", fecha de Fin= " + fechaFin + ", idUsuario= " + idUsuario + ", idLibro= " + idLibro + " ]";
     }
 }
