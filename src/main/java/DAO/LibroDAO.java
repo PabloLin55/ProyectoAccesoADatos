@@ -1,5 +1,6 @@
 package DAO;
 
+import Model.Autor;
 import Model.Libro;
 
 import java.sql.SQLException;
@@ -11,4 +12,5 @@ public interface LibroDAO {
     Libro getLibrosById(int id) throws SQLException;
     void updateLibro(Libro libro) throws SQLException;
     void deleteLibro(int id) throws SQLException;
+    void addLibroAutorRelacion(Libro libro, Autor autor) throws SQLException;
 }

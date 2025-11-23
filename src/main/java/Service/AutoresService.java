@@ -14,6 +14,7 @@ public class AutoresService {
     public void registrarAutor(String nombre) {
         try {
             Autor autor = new Autor(0, nombre);
+            autorDAO.addAutor(autor);
         } catch (Exception e) {
             e.printStackTrace();
         }

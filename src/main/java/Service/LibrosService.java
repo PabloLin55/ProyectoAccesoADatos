@@ -1,22 +1,35 @@
 package Service;
 
+import DAO.AutorDAO;
+import DAO.AutorDAOImpl;
 import DAO.LibroDAO;
 import DAO.LibroDAOImpl;
+import Model.Autor;
 import Model.Libro;
 
 import java.util.List;
 
 public class LibrosService {
     private LibroDAO libroDAO;
+    private AutorDAO autorDAO;
 
-    public LibrosService(LibroDAO libroDAO) {
-            this.libroDAO = libroDAO;
+    public LibrosService(LibroDAO libroDAO, AutorDAO autorDAO) {
+
+        this.libroDAO = libroDAO;
+        this.autorDAO = autorDAO;
         }
 
-        public void registrarLibro(String titulo, String isbn) {
+        public void registrarLibro(String titulo, String isbn, int idAutor) {
             try {
-                Libro libro = new Libro(0, titulo, isbn);
-                libroDAO.addLibros(libro);
+                Autor autor = autorDAO.getAutorById(idAutor);
+                if (autor != null) {
+                    Libro libro = new Libro(0, titulo, isbn);
+                    libroDAO.addLibros(libro);
+                    libroDAO.addLibroAutorRelacion(libro, autor);
+                } else {
+                    System.out.println("Service: No se encontró el autor con id=" + idAutor);
+
+                }
             } catch (Exception e) {
                 System.err.println("Error al registrar libro: " + e.getMessage());
             }
